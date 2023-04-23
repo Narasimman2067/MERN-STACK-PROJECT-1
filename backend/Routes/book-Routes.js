@@ -1,11 +1,12 @@
 import express from "express";
-import {getBook } from "../Controllers/Book-Controllers.js";
+import {addBooks, getBook } from "../Controllers/Book-Controllers.js";
 
 
 export const bookRouter =express.Router();
 
 
 bookRouter.get("/getbook",getBook)
+bookRouter.post("/addbook",addBooks)
 
 
 

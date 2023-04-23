@@ -8,7 +8,6 @@ dotenv.config()
 const app =express();
 
 
-
 // database connection
 
 mongoose.connect(process.env.MONGO_URL)
@@ -25,7 +24,7 @@ try {
 
 const PORT =process.env.PORT
 
-
+app.use(express.json());
 
 app.use("/api/books",bookRouter)
 
