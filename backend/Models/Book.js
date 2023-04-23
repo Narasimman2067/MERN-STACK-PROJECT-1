@@ -21,7 +21,12 @@ price:{
     type:Number,
     required:true,
 },
-available:{
+image:{
+type:String,
+required:true,
+},
+available:
+{
     type:Boolean,
    
 },
