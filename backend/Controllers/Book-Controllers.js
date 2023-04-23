@@ -47,7 +47,7 @@ if(!books)
 {
     return res.status(404).json({data:"unable to Add the book"})
 }
-return request.status(201).json({data:"book successfully created",books})
+return res.status(201).json({data:"book successfully created",books})
 
 
 };
