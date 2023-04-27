@@ -4,16 +4,24 @@ import "../Css/Books.css";
 import "../Css/Book2.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getBookRoutes } from "../Features/apiHelpers";
 
 export function Book(props) {
   // destructure the value to get from backend to store in props
   const { _id, author, bookname, price, description, image } = props.book;
-
+  const fetchHandler = async () => {
+    // after we get the data from the url 0f getBookRoutes
+    return await axios
+      .get(getBookRoutes)
+      .then((res) => res.data)
+      .catch((err) => console.log(err));
+    //  render the datavariable using .then to get response
+  };
   const deleteBook = async () => {
     await axios
       .delete(`https://mern-stack-project-1-bookstore.vercel.app/books/delete/${_id}`)
       .then((res) => res.data)
-      .catch((err) => console.log(err));
+      fetchHandler().catch((err) => console.log(err));
   };
 
   return (
