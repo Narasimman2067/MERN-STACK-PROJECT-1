@@ -34,9 +34,9 @@ app.use("/books",bookRouter)
 
 
 
-app.use(("/"),(req,res,next)=>{
-    res.send("the server had started to build app backend")
-})
+// app.use(("/"),(req,res,next)=>{
+//     res.send("the server had started to build app backend")
+// })
 
 
 
