@@ -7,22 +7,15 @@ import axios from "axios";
 import { getBookRoutes } from "../Features/apiHelpers";
 
 export function Book(props) {
-  const navigate =useNavigate
+  const history =useNavigate
   // destructure the value to get from backend to store in props
   const { _id, author, bookname, price, description, image } = props.book;
-  const fetchHandler = async () => {
-    // after we get the data from the url 0f getBookRoutes
-    return await axios
-      .get(getBookRoutes)
-      .then((res) => res.data)
-      .catch((err) => console.log(err));
-    //  render the datavariable using .then to get response
-  };
-  const deleteBook = async () => {
+ 
+  const deleteHandler = async()=>{
     await axios
       .delete(`https://mern-stack-project-1-bookstore.vercel.app/books/delete/${_id}`)
       .then((res) => res.data)
-      fetchHandler().then(()=>navigate("/get"))
+     .then(()=>history.push("/get"))
       .catch((err) => console.log(err));
   };
 
@@ -57,7 +50,7 @@ export function Book(props) {
         </Button>
         <a href="/get">
           <Button
-            onClick={()=>deleteBook()}
+            onClick={deleteHandler}
             variant="contained"
             color="error"
           >
