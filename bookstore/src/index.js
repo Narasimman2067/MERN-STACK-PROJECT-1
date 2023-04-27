@@ -6,6 +6,7 @@ import { BrowserRouter} from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const host ="https://mern-stack-project-1-bookstore.vercel.app"
 root.render(
  <BrowserRouter>
 

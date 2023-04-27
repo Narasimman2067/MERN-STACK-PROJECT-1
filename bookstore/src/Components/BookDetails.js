@@ -15,7 +15,7 @@ export function Book(props) {
     await axios
       .delete(`https://mern-stack-project-1-bookstore.vercel.app/books/delete/${_id}`)
       .then((res) => res.data)
-     .then(()=>history.push("/get"))
+    
       .catch((err) => console.log(err));
   };
 
