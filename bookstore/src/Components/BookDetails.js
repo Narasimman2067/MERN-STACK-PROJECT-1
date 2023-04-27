@@ -2,11 +2,12 @@ import { Button } from "@mui/material";
 import React from "react";
 import "../Css/Books.css";
 import "../Css/Book2.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getBookRoutes } from "../Features/apiHelpers";
 
 export function Book(props) {
+  const navigate =useNavigate
   // destructure the value to get from backend to store in props
   const { _id, author, bookname, price, description, image } = props.book;
   const fetchHandler = async () => {
@@ -21,7 +22,8 @@ export function Book(props) {
     await axios
       .delete(`https://mern-stack-project-1-bookstore.vercel.app/books/delete/${_id}`)
       .then((res) => res.data)
-      fetchHandler().catch((err) => console.log(err));
+      fetchHandler().then(()=>navigate("/get"))
+      .catch((err) => console.log(err));
   };
 
   return (
