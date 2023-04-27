@@ -47,7 +47,7 @@ export function Book(props) {
         </Button>
         <a href="/get">
           <Button
-            onClick={() => deleteBook()}
+            onClick={deleteBook}
             variant="contained"
             color="error"
           >
