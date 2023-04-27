@@ -5,11 +5,11 @@ import {addBooks, deleteBook, editBook, getBook, getBookById } from "../Controll
 export const bookRouter =express.Router();
 
 
-bookRouter.get("/getbook",getBook)
-bookRouter.get("/getbook/:id",getBookById)
-bookRouter.post("/addbook",addBooks)
-bookRouter.put("/editbook/:id",editBook)
-bookRouter.put("/deletebook/:id",deleteBook)
+bookRouter.get("/",getBook)
+bookRouter.get("/:id",getBookById)
+bookRouter.post("/add",addBooks)
+bookRouter.put("/edit/:id",editBook)
+bookRouter.delete("/delete/:id",deleteBook)
 
 
 

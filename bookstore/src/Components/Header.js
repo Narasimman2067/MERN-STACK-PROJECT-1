@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+
 import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
-import { AppBar, Button, Tab, Tabs, Toolbar, Typography } from "@mui/material";
+import {  AppBar, Tab, Tabs, Toolbar } from "@mui/material";
 import "../Css/Header.css";
-import {Link, NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 
 
 
@@ -11,69 +11,47 @@ function Header() {
   const [value, setValue] = useState();
 
   return (
-    <Container>
-      <AppBar className="header-top">
+    <div className="header-top">
+      <AppBar  sx={{bgcolor:"black",color:"white" }}>
+       
         <Toolbar>
-          <Typography>
+        <NavLink to="/"  >
+          <h4 className="library" style={{color:"white", fontSize:"1rem",height:"2rem"}}>
             <LibraryBooksOutlinedIcon />
-          </Typography>
+          </h4>
+          </NavLink>
           {/* here we need dynamic value when we tap the Tab it indicate the color so use useState */}
-          <TabControll className="tabcontroll">
+          <div className="tabcontroll">
            <Tabs 
+           color="white"
            className="tab"
-           textColor="inherit"
+           textColor="white"
            indicatorColor="secondary" 
            value={value}
            onChange={(e,val)=>setValue(val)}  //val is store the value of the tab declare
            >
-            <Tab LinkComponent={NavLink} to="/" label="Home" />
-            <Tab LinkComponent={NavLink} to="/about" label="About" />
-            <Tab LinkComponent={NavLink} to="/addBook" label="AddBooks" />
-            <Tab LinkComponent={NavLink} to="/getBook" label="Books" />
-           
+          
+            <Tab  className="tab-child" LinkComponent={NavLink} to="/" label="Home" />
+            <Tab className="tab-child" LinkComponent={NavLink} to="/about" label="About" />
+            <Tab className="tab-child" LinkComponent={NavLink} to="/add" label="AddBooks" />
+            <Tab className="tab-child" LinkComponent={NavLink} to="/get" label="Books" />
+            
            
       
           </Tabs>
-          </TabControll>
+          </div>
         </Toolbar>
       </AppBar>
-    </Container>
+      </div>
   );
 }
 
 export default Header;
 
-const Container = styled.div`
-  position: sticky;
-  width: 100vw;
-  height: 100vh;
-  background: #0f2345 !important;
- 
- 
-`;
-
-
-const TabControll = styled.div`
 
 
 
 
 
-`
-// const AppBar = styled.div`
-//   position: sticky;
-//   height: 70px;
-//   background-color:white;
-//   width: 100%;
-//   color: black;
-//   display: flex;
-//   align-items: center;
-// `;
-
-// const Typography = styled.div`
-//   display: flex;
-//   align-items: center;
-//   font-size: 20px;
-// `;
 
 

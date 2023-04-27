@@ -108,7 +108,7 @@ export const deleteBook =async(req,res)=>{
   let books
   try {
     // await here to wait the respnse to triggered
-    books =await Book.findByIdAndDelete(id)
+    books =await Book.findByIdAndRemove(id)
   } catch (error) {
 console.log(error)
 }

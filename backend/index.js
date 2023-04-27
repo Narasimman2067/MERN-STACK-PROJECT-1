@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import  dotenv  from 'dotenv';
 import bookRouter from "./Routes/book-Routes.js";
-
+import cors from 'cors'
 
 dotenv.config()
 const app =express();
@@ -24,18 +24,19 @@ try {
 
 const PORT =process.env.PORT
 
+app.use(cors());
 app.use(express.json());
 
-app.use("/api/books",bookRouter)
+app.use("/books",bookRouter)
 
 
 
 
 
 
-app.use(("/"),(req,res,next)=>{
-    res.send("the server had started to build app backend")
-})
+// app.use(("/"),(req,res,next)=>{
+//     res.send("the server had started to build app backend")
+// })
 
 
 

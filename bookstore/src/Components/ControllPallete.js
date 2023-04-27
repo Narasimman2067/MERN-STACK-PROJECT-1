@@ -8,34 +8,34 @@ import { getBookRoutes } from "../Features/apiHelpers";
 
 
 
-const Books = (props) => {
-  const [books, setBooks] = useState();
+const ControllBook = (props) => {
+  const [controlls, setControlls] = useState();
   
   
   
-  const fetchHandler = async () => {
+  const ControllHandler = async () => {
     // after we get the data from the url 0f getBookRoutes
     return await axios
-      .get(getBookRoutes)
+      .get(`http://localhost:8000/books/get`)
       .then((res) => res.data)
       .catch((err) => console.log(err));
     //  render the datavariable using .then to get response
   };
   // useeffect is used to render the component when ever it triggers first time
   useEffect(() => {
-    fetchHandler()
+    ControllHandler()
       // what ever we render as in map function  we would give in the use State props of parameters
-      .then((data) => setBooks(data.books));
+      .then((data) => setControlls(data.controlls));
   }, []);
-  console.log(books);
+  console.log(controlls);
 
   return (
   <div className="book-controll">
      
-        {books &&
-          books.map((book, index) => (
+        {controlls &&
+          controlls.map((controll, index) => (
             <div className="card" key={index}>
-              <Book book={book} />
+              <Book book={controll} />
             </div>
           ))}
       
@@ -43,6 +43,4 @@ const Books = (props) => {
   );
 };
 
-export default Books;
-
-
+export default ControllBook;
