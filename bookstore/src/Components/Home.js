@@ -10,7 +10,7 @@ function Home() {
     <div style={{ height: "100vh" }}>
       <Box display="flex" flexDirection={"column"} alignItems={"center"}>
        
-       <h3 style={{ color:"white",marginTop:"5rem",fontSize:"40px" }}>Welcome To Our App</h3>
+       <h3 style={{ color:"white",fontFamily:"algerian",letterSpacing:"2px",marginTop:"5rem",fontSize:"40px" }}>Welcome To Our App</h3>
        
        
         <Button
@@ -26,7 +26,7 @@ function Home() {
            
           }}
         >
-          <Typography variant="h3">View All Books</Typography>
+          <Typography variant="h3" style={{fontFamily:"algerian"}}>View All Books</Typography>
         </Button>
       </Box>
     </div>
@@ -38,11 +38,11 @@ export default Home;
 
 
 const Container =styled.div`
-background-image:url("https://i.pinimg.com/originals/8a/13/52/8a13524dc09a8efb9da159cb912c8c5b.jpg");
+background-image:url("https://static01.nyt.com/images/2017/05/11/t-magazine/bookstore-slide-2MCD/bookstore-slide-2MCD-superJumbo.jpg");
 background-position:center;
 object-fit:cover;
-// width:100vw !important;
 background-repeat:no-repeat;
 background-size:cover;
+box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5) ;
 
 `
